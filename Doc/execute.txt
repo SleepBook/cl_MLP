@@ -1,0 +1,18 @@
+The execution utilities are encapsulate into a class called mlp. The public methods of it are showed below:
+
+mlp::mlp(const char*): the constructor takes a filename as input and initialize the instance using the configure file. internally it will call the load function at the first time. and will set up the data structure to represent the mlp NN as well as set the OpenCL environment.
+
+ int mlp::getInput()  this function puts the input data into the proper position in a inner data-structure, namely the floar array h_input. when using this class under a specific environment, user need to modify this func. return 0 when the function works correctly, and -1 when a error happens
+
+int mlp::run_cpu()  this function will calculate the output from the input, and put the result in the float array h_output. the calculation is carried out by CPU, and execution time is recorded. return 0 when the function works correctly, and -1 when a error happens
+
+int mlp::run_device()  do the same job as run_cpu, but the work is done by an OpenCL computing device, the execution time is recorded. return 0 when the function works correctly, and -1 when a error happens
+
+int mlp::predict()  when the mlp is used to do classification. this function is used to return which class the input data belong to.
+
+int mlp::retrieve_result(float*, int)  when the mlp is used to do regression, this function can be used to get the value, the result will be put in the space pointed by the first parameter, with the second parameter restrict the width. return 0 when the function works correctly, and -1 when a error happens
+
+float mlp::getKernelTime()  when the calculation is carried under OpenCL, this function returns the execution time, unit is micro-second
+
+float mlo::getCPUtime()  return the execution time on CPU, unit is micro-second.
+

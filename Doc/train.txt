@@ -1,0 +1,16 @@
+You mainly interact with the train part through 3 scripts:
+	train.m  which will train the net using MNIST dataset and do a correct rate sampling
+	NetExtractor.m which will extract the net configure into a file under the output dirtory
+	DataExtractor.m which will extract single/multi frames from the MNIST dataset as a file, also under output directory
+
+The APIs composing these scripts(which are defined under Functions directory)
+
+	loadMNISTImages/loadMNISTLabels: automatically extrace the binary files from the MNIST database
+
+	initialNet: initialize the link values
+
+	mlpff: feed-forward calculation
+
+	mlpbp: back-propragation
+
+	applyGrads: use the gradient to adjust the link weights
